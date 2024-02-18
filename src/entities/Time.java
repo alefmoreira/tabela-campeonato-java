@@ -7,8 +7,6 @@ public class Time {
     private String cidade;
     private String cores;
 
-    public Time(){
-    }
     public Time(String nome) {
         this.nome = nome;
     }

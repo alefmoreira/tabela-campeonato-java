@@ -6,6 +6,12 @@ public class Jogador {
     private String posicao;
     private Integer numCamisa;
 
+    public Jogador(String nome, Integer idade, String posicao, Integer numCamisa) {
+        this.nome = nome;
+        this.idade = idade;
+        this.posicao = posicao;
+        this.numCamisa = numCamisa;
+    }
 
     public String getNome() {
         return nome;
@@ -15,11 +21,11 @@ public class Jogador {
         this.nome = nome;
     }
 
-    public int getIdade() {
+    public Integer getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(Integer idade) {
         this.idade = idade;
     }
 
@@ -31,11 +37,24 @@ public class Jogador {
         this.posicao = posicao;
     }
 
-    public int getNumCamisa() {
+    public Integer getNumCamisa() {
         return numCamisa;
     }
 
-    public void setNumCamisa(int numCamisa) {
+    public void setNumCamisa(Integer numCamisa) {
         this.numCamisa = numCamisa;
     }
+
+    @Override
+    public String toString() {
+        return nome
+               + ", idade: "
+               + idade
+               +", Posição: "
+               + posicao
+               + ", Numero: "
+               + numCamisa;
+    }
 }
+
+
