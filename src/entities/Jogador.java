@@ -2,19 +2,10 @@ package entities;
 
 public class Jogador {
     private String nome;
-    private int idade;
+    private Integer idade;
     private String posicao;
-    private int numCamisa;
+    private Integer numCamisa;
 
-    public Jogador(){
-
-    }
-
-    public Jogador(String nome, String posicao, int numCamisa) {
-        this.nome = nome;
-        this.posicao = posicao;
-        this.numCamisa = numCamisa;
-    }
 
     public String getNome() {
         return nome;
