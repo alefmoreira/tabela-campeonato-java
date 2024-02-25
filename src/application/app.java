@@ -1,7 +1,13 @@
 package application;
 
 import entities.Jogador;
+import entities.Time;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -13,12 +19,12 @@ public class app {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("digite o numero de jogadores que vc quer cadastar: ");
-
         int n = sc.nextInt();
-        Jogador[] dadosJogador = new Jogador[n];
-        List<Jogador> listJogadores = new ArrayList<>();
 
-        for (int i=0; i< dadosJogador.length; i++) {
+
+        Time corinthians = new Time("Corinthians", "São Paulo", "Preto/Branco");
+
+        for (int i=0; i< n; i++) {
             System.out.print("Nome: ");
             String name = sc.next();
             sc.nextLine();
@@ -28,14 +34,16 @@ public class app {
             int idade = sc.nextInt();
             System.out.print("Numero camisa: ");
             int camisa = sc.nextInt();
-            dadosJogador[i] = new Jogador(name, idade, posicao, camisa);
+            System.out.print("Digite quantos anos de contrato: ");
+            int duracaoContrato = sc.nextInt();
+
+            LocalDate inicioContrato = LocalDate.now(ZoneId.systemDefault());
+            LocalDate fimContrato = inicioContrato.plusYears(duracaoContrato);
+            Jogador jogadorCorinthians = new Jogador(name, idade,posicao, camisa, fimContrato);
+            corinthians.addJogador(jogadorCorinthians);
+            System.out.println(jogadorCorinthians);
         }
-        for(int i=0; i<dadosJogador.length; i++) {
-            listJogadores.add(dadosJogador[i]);
-        }
-        for (Jogador x : listJogadores){
-            System.out.println(x);
-        }
+
         
     }
 }
