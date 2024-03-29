@@ -1,22 +1,24 @@
-package entities;
+package model.entities.Times;
 
-import java.time.LocalDate;
+
 
 import java.time.format.DateTimeFormatter;
 
 public class Jogador {
+    private int id;
     private String nome;
     private Integer idade;
     private String posicao;
     private Integer numCamisa;
-    private LocalDate contrato;
+    private ContratoJogador contratoJogador;
     DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    public Jogador(String nome, Integer idade, String posicao, Integer numCamisa, LocalDate contrato) {
+
+    public Jogador(int id, String nome, Integer idade, String posicao, Integer numCamisa) {
+        this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.posicao = posicao;
         this.numCamisa = numCamisa;
-        this.contrato = contrato;
     }
 
     public String getNome() {
@@ -51,12 +53,6 @@ public class Jogador {
         this.numCamisa = numCamisa;
     }
 
-    public LocalDate getContrato() {
-        return contrato;
-    }
-
-
-
     @Override
     public String toString() {
         return nome
@@ -65,9 +61,8 @@ public class Jogador {
                +", Posição: "
                + posicao
                + ", Numero: "
-               + numCamisa
-               + " Fim do contrato em: "
-               + contrato.format(fmt1);
+               + numCamisa;
+
     }
 }
 
